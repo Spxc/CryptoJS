@@ -1,0 +1,36 @@
+
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <!-- include CryptoJS cdn -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/crypto-js.js"></script>
+    
+    <script>
+        //encryption function
+        function encryptDES (data, sec_key) {
+            var encrypted = CryptoJS.TripleDES.encrypt(data, sec_key); 
+            console.log("Encrypt: "+data+" Result: " + encrypted);
+        }
+        //decryption function
+        //data can also be pulled from jQuery if needed
+        //no need to pass the sec key in the function, but it is as an option
+        function decryptDES (data, sec_key) {
+            var decrypted = CryptoJS.TripleDES.decrypt(data, sec_key);
+            console.log("Decrypt: "+data+" Result: " + decrypted.toString(CryptoJS.enc.Utf8));
+            //shows result in console.log
+        }
+    </script>
+</head>
+<body>
+    <!-- data to encrypt/decrypt -->
+    <input type="text" id="dataInput" name="dataInput" placeholder="pure data" />
+    
+    <!-- encrypt link call -->
+    <a href="#!" onclick="encryptDES(document.getElementById('dataInput').value, 'secretKey')">Encrypt</a>
+    
+    <!-- dencrypt link call -->
+    <a href="#!" onclick="decryptDES(document.getElementById('dataInput').value, 'secretKey')">Decrypt</a>
+</body>
+</html>
