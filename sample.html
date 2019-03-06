@@ -11,6 +11,7 @@
         //encryption function
         function encryptDES (data, sec_key) {
             var encrypted = CryptoJS.TripleDES.encrypt(data, sec_key); 
+            // encrypted.serialize()); // serialize for submission jQuery
             console.log("Encrypt: "+data+" Result: " + encrypted);
         }
         //decryption function
@@ -18,6 +19,7 @@
         //no need to pass the sec key in the function, but it is as an option
         function decryptDES (data, sec_key) {
             var decrypted = CryptoJS.TripleDES.decrypt(data, sec_key);
+            // decrypted.serialize()); // serialize for submission jQuery
             console.log("Decrypt: "+data+" Result: " + decrypted.toString(CryptoJS.enc.Utf8));
             //shows result in console.log
         }
